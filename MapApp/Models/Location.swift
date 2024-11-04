@@ -9,7 +9,8 @@ import Foundation
 import MapKit
 
 
-struct Location {
+struct Location : Identifiable {
+    let id: String = UUID().uuidString
     let name: String
     let cityName: String
     let coordinates: CLLocationCoordinate2D
