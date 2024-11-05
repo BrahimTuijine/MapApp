@@ -15,8 +15,11 @@ struct LocationListView: View {
         List {
             ForEach(vm.locations) {
                 listRowView(location: $0)
+                    .padding(.vertical, 4)
             }
+            
         }
+        .listStyle(.plain)
     }
 }
 

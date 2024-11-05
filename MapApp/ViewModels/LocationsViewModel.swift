@@ -12,14 +12,21 @@ import _MapKit_SwiftUI
 class LocationsViewModel: ObservableObject {
     let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
     
+    
+    // All loaded locations
     @Published var locations : [Location] = []
+    
+    // Current locations on map
     @Published var mapLocation : Location {
         didSet {
             updateMapRegion(location: mapLocation)
         }
     }
+    // Current region on map
     @Published var mapRegion : MapCameraPosition
     
+    // Show list of loactions
+    @Published var showList: Bool = false
     
     init() {
         let locations = LocationsDataService.locations
@@ -33,12 +40,16 @@ class LocationsViewModel: ObservableObject {
         )
     }
     
-    func updateMapRegion(location: Location) -> Void {
+    private func updateMapRegion(location: Location) -> Void {
             mapRegion = MapCameraPosition.region(
                 MKCoordinateRegion(
                     center: location.coordinates,
                     span: mapSpan
                 )
             )
+    }
+    
+    private func toggleLocationsList() -> Void {
+        showList.toggle()
     }
 }

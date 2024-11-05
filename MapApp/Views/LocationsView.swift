@@ -11,7 +11,7 @@ import MapKit
 struct LocationsView: View {
     
     @EnvironmentObject var vm : LocationsViewModel
-    @State var showList: Bool = false
+    
     
     var body: some View {
         ZStack {
@@ -26,7 +26,7 @@ struct LocationsView: View {
             }
             
         }
-        .animation(.easeInOut, value: showList)
+        .animation(.easeInOut, value: vm.showList)
     
     }
 }
@@ -45,21 +45,21 @@ extension LocationsView {
                     Image(systemName: "arrow.down")
                         .font(.headline)
                         .foregroundColor(.primary)
-                        .padding(.leading)
+                        .padding()
+                        .rotationEffect(
+                            Angle(degrees: vm.showList ? 180 : 0),
+                            anchor: .center
+                        )
                 }
                 .onTapGesture {
-                    showList.toggle()
+                    vm.showList.toggle()
                 }
             
-            if showList {
-                List {
-                    ForEach(0..<3) { _ in
-                        Text("\(vm.mapLocation.name), \(vm.mapLocation.cityName)")
-                    }
-                }
-                .frame(height: 400)
-                .listStyle(.plain)
+            if vm.showList {
+                LocationListView()
+                    .frame(height: 420)      
             }
+                
             
         }
         .background(.white)
