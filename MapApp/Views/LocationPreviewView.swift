@@ -9,12 +9,11 @@ import SwiftUI
 
 struct LocationPreviewView: View {
     
+    @EnvironmentObject private var vm : LocationsViewModel
     let location : Location
     
     var body: some View {
-        ZStack {
-            Color.green
-            
+        
             ZStack {
                 HStack(alignment: .bottom) {
                     locationInfo
@@ -34,7 +33,8 @@ struct LocationPreviewView: View {
             
                 roundedImage
             }
-        }
+            .shadow(color: Color.black.opacity(0.3), radius: 10)
+        
     }
 }
 
@@ -53,7 +53,7 @@ extension LocationPreviewView {
     
     private var nextButton : some View {
         Button(action: {
-            
+            vm.nextButtonPressed()
         }, label: {
             Text("Next")
                 .font(.headline)
@@ -74,7 +74,7 @@ extension LocationPreviewView {
             .frame(width: 120, height: 120)
             .background(.white)
             .cornerRadius(10)
-            .offset(x: -105, y: -70)
+            .offset(x: -107, y: -70)
     }
     
     private var locationInfo : some View {
@@ -90,5 +90,6 @@ extension LocationPreviewView {
 
 #Preview {
     LocationPreviewView(location: LocationsDataService.locations.first!)
+        .environmentObject(LocationsViewModel())
         
 }

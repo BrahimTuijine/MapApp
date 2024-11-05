@@ -10,7 +10,7 @@ import _MapKit_SwiftUI
 
 
 class LocationsViewModel: ObservableObject {
-    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+    let mapSpan = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
     
     
     // All loaded locations
@@ -56,5 +56,28 @@ class LocationsViewModel: ObservableObject {
     func showNextLocation(location: Location) -> Void {
         mapLocation = location
         showList = false
+    }
+    
+    func nextButtonPressed() -> Void {
+
+       // get current map location index
+        
+        guard let currentIndex = locations.firstIndex(where: {$0 == mapLocation}) else {return}
+        
+       // check currentIndex + 1 is valid
+        
+        let nextIndex = currentIndex + 1
+        
+        guard locations.indices.contains(nextIndex) else {
+            showNextLocation(location: locations.first!)
+            return
+        }
+        
+       // else assign first location
+        
+        let nextLocation = locations[nextIndex]
+        
+        showNextLocation(location: nextLocation)
+
     }
 }
