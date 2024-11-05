@@ -52,4 +52,9 @@ class LocationsViewModel: ObservableObject {
     private func toggleLocationsList() -> Void {
         showList.toggle()
     }
+    
+    func showNextLocation(location: Location) -> Void {
+        mapLocation = location
+        showList = false
+    }
 }

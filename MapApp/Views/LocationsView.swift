@@ -34,7 +34,6 @@ struct LocationsView: View {
 extension LocationsView {
     private var header: some View {
         VStack {
-            
             Text("\(vm.mapLocation.name), \(vm.mapLocation.cityName)")
                 .font(.title2)
                 .fontWeight(.black)
