@@ -10,6 +10,7 @@
 		FA17DBBD2CDA1635009DCCD6 /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17DBBC2CDA1635009DCCD6 /* LocationListView.swift */; };
 		FA17DBBF2CDA6449009DCCD6 /* LocationPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA17DBBE2CDA6449009DCCD6 /* LocationPreviewView.swift */; };
 		FA1A5B9E2CDB639F00157051 /* LocationMapAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1A5B9D2CDB639F00157051 /* LocationMapAnnotationView.swift */; };
+		FA1B13622CDC243D00451ECB /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1B13612CDC243D00451ECB /* LocationDetailsView.swift */; };
 		FA332F8B2CD8BEB800962AEA /* LocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA332F8A2CD8BEB800962AEA /* LocationsView.swift */; };
 		FA332F8D2CD8BEDD00962AEA /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA332F8C2CD8BEDD00962AEA /* LocationsViewModel.swift */; };
 		FA4B3FA62CD835AC0001885B /* MapAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4B3FA52CD835AC0001885B /* MapAppApp.swift */; };
@@ -24,6 +25,8 @@
 		FA17DBBC2CDA1635009DCCD6 /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		FA17DBBE2CDA6449009DCCD6 /* LocationPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPreviewView.swift; sourceTree = "<group>"; };
 		FA1A5B9D2CDB639F00157051 /* LocationMapAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMapAnnotationView.swift; sourceTree = "<group>"; };
+		FA1B13612CDC243D00451ECB /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
+		FA1B13632CDC2E4900451ECB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FA332F8A2CD8BEB800962AEA /* LocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsView.swift; sourceTree = "<group>"; };
 		FA332F8C2CD8BEDD00962AEA /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		FA4B3FA22CD835AC0001885B /* MapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +68,7 @@
 		FA4B3FA42CD835AC0001885B /* MapApp */ = {
 			isa = PBXGroup;
 			children = (
+				FA1B13632CDC2E4900451ECB /* Info.plist */,
 				FA4B3FA52CD835AC0001885B /* MapAppApp.swift */,
 				FA4B3FA72CD835AC0001885B /* ContentView.swift */,
 				FA4B3FB32CD837290001885B /* Assets.xcassets */,
@@ -92,6 +96,7 @@
 				FA17DBBC2CDA1635009DCCD6 /* LocationListView.swift */,
 				FA17DBBE2CDA6449009DCCD6 /* LocationPreviewView.swift */,
 				FA1A5B9D2CDB639F00157051 /* LocationMapAnnotationView.swift */,
+				FA1B13612CDC243D00451ECB /* LocationDetailsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA1B13622CDC243D00451ECB /* LocationDetailsView.swift in Sources */,
 				FA4B3FBC2CD839E10001885B /* LocationsDataService.swift in Sources */,
 				FA1A5B9E2CDB639F00157051 /* LocationMapAnnotationView.swift in Sources */,
 				FA332F8D2CD8BEDD00962AEA /* LocationsViewModel.swift in Sources */,
@@ -334,17 +340,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MapApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MapApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "My Locations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brahim.MapApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brahim.-MyLocations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -362,17 +369,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MapApp/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MapApp/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "My Locations";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.brahim.MapApp;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.brahim.-MyLocations";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
