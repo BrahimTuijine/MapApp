@@ -15,7 +15,18 @@ struct LocationsView: View {
     
     var body: some View {
         ZStack {
-            Map(position: $vm.mapRegion)
+            Map(position: $vm.mapRegion) {
+                ForEach(vm.locations) { location in
+                    Annotation(location.name, coordinate: location.coordinates) {
+                        LocationMapAnnotationView()
+                            .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
+                            .onTapGesture {
+                                vm.showNextLocation(location: location)
+                            }
+                    }
+                                       
+                }
+            }
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
