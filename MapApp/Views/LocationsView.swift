@@ -24,19 +24,7 @@ struct LocationsView: View {
                 
                 Spacer()
                 
-                ZStack {
-                    ForEach(vm.locations) { location in
-                        if vm.mapLocation == location {
-                            LocationPreviewView(location: location)
-                                .transition(.asymmetric(
-                                        insertion: .move(edge: .trailing),
-                                        removal: .move(edge: .leading)
-                                    )
-                                )
-                        }
-                        
-                    }
-                }
+                locationPreviewStack
             }
             
         }
@@ -92,6 +80,22 @@ extension LocationsView {
                         }
                 }
                                    
+            }
+        }
+    }
+    
+    private var locationPreviewStack : some View {
+        ZStack {
+            ForEach(vm.locations) { location in
+                if vm.mapLocation == location {
+                    LocationPreviewView(location: location)
+                        .transition(.asymmetric(
+                                insertion: .move(edge: .trailing),
+                                removal: .move(edge: .leading)
+                            )
+                        )
+                }
+                
             }
         }
     }
