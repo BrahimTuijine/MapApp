@@ -15,19 +15,8 @@ struct LocationsView: View {
     
     var body: some View {
         ZStack {
-            Map(position: $vm.mapRegion) {
-                ForEach(vm.locations) { location in
-                    Annotation(location.name, coordinate: location.coordinates) {
-                        LocationMapAnnotationView()
-                            .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
-                            .onTapGesture {
-                                vm.showNextLocation(location: location)
-                            }
-                    }
-                                       
-                }
-            }
-                .ignoresSafeArea()
+            
+            mapLayer.ignoresSafeArea()
             
             VStack(spacing: 0) {
                 header
@@ -90,6 +79,21 @@ extension LocationsView {
         .background(.white)
         .cornerRadius(10)
         .shadow(color: Color.black.opacity (0.3), radius: 20, x: 0, y: 15)
+    }
+    
+    private var mapLayer: some View {
+        Map(position: $vm.mapRegion) {
+            ForEach(vm.locations) { location in
+                Annotation(location.name, coordinate: location.coordinates) {
+                    LocationMapAnnotationView()
+                        .scaleEffect(vm.mapLocation == location ? 1 : 0.7)
+                        .onTapGesture {
+                            vm.showNextLocation(location: location)
+                        }
+                }
+                                   
+            }
+        }
     }
 }
 
